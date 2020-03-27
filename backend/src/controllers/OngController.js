@@ -6,7 +6,7 @@ module.exports = {
     async get_all(request, response){
         const ongs = await connection('ongs').select('*');
 
-        return response.json(ongs)
+        return response.json(ongs);
     },
     async create(request, response){
 
