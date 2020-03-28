@@ -12,7 +12,7 @@ module.exports = {
             ong_id
         });
 
-        return response.json({id})
+        return response.json({id});
     },
 
     async get_all(request, response){
