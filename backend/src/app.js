@@ -2,11 +2,11 @@ const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
 const app = express();
-
+const {errors } = require('celebrate');
 app.use(cors());
 app.use(express.json());
 app.use(routes);
-
+app.use(errors());
 /**
  * Entity:
  * ONG
@@ -17,12 +17,12 @@ app.use(routes);
   * Functions:
   * ONG:
   *     Login
-  *     Cadastro 
+  *     Cadastro
   *     Logout
   *     Cadastrar novos casos
   *     Deletar casos
   *     Listar casos da ONG em específico
-  *Lista todos os casos
+  *     Lista todos os casos
   *Entrar em contato com as ONGs
   */
 /**
@@ -36,7 +36,7 @@ app.use(routes);
 
 /**
  * Tipos de parâmetro:
- * 
+ *
  * Requent body: Corpo da requisição, utilizado para criar ou alterar recursos.
  * Query Params: nomeados enviados na rota após "?"
  * usados para eg. paginação, filtros.
@@ -52,5 +52,5 @@ app.use(routes);
  * Driver: SELECT * FROM users
  * Query Builder: table('users').select('*').where()
  */
-app.listen(3333);
+module.exports = app;
 
